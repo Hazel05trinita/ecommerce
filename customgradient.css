@@ -1,0 +1,63 @@
+/* Glowing gradient backgrounds for featured sections */
+.featured-product-section {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.15) 50%, rgba(236, 72, 153, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(147, 51, 234, 0.2);
+  }
+  
+  .featured-product-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, transparent 60%);
+    animation: glowPulse 15s infinite linear;
+    z-index: 0;
+  }
+  
+  .why-choose-us-section {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(59, 130, 246, 0.15) 50%, rgba(16, 185, 129, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+  }
+  
+  .why-choose-us-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 60%);
+    animation: glowPulse 15s infinite linear;
+    z-index: 0;
+  }
+  
+  /* Make sure content stays above the gradient */
+  .featured-product-section > *, .why-choose-us-section > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Animation for the glowing effect */
+  @keyframes glowPulse {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Add some padding to the sections */
+  .featured-product-section, .why-choose-us-section {
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+  }
+  

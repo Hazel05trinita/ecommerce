@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edutou supermarket</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <link rel="stylesheet" href="styles/custom-gradients.css">
+        <div class="logo">
+            <a href="#">Edutou supermarket</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <form class="search-bar" id="searchForm">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button type="submit">🔍</button>
+        </form>
+        <div class="cta">
+            <a href="#cart" class="cart-btn">Cart</a>
+            <a href="login.html" class="login-btn">Login</a>
+            <script>
+                async function loginUser(event) {
+                    event.preventDefault(); // Prevent default form submission
+            
+                    const username = document.getElementById("username").value;
+                    const password = document.getElementById("password").value;
+            
+                    const response = await fetch("http://localhost:5000/login", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ username, password })
+                    });
+            
+                    const data = await response.json();
+            
+                    if (data.success) {
+                        alert("Login successful!");
+                        localStorage.setItem("token", data.token); // Store token
+                        window.location.href = "dashboard.html"; // Redirect user
+                    } else {
+                        alert("Invalid credentials. Try again.");
+                    }
+                }
+            
+                document.getElementById("loginForm").addEventListener("submit", loginUser);
+            </script>
+            
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to <span>Edutou supermarket</span></h1>
+            <p>Discover the perfect products to enhance your life.</p>
+            <div class="hero-buttons">
+                <a href="#shop" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-product-section">
+    <section class="featured-products" id="shop">
+        <h2>Featured Products</h2>
+        <div id="searchResults"></div>
+        <div class="products-container" id="productsContainer">
+            <!-- Product Cards -->
+            <div class="product-card">
+                <img src="image/slim.png" alt="Slim capsule">
+                <h3>Slim capsule</h3>
+                <p>₹528</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <img src="image/spirulina.png" alt="Spirulina capsule">
+                <h3>Spirulina capsule</h3>
+                <p>₹387</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <img src="image/amla.png" alt="Amla capsule">
+                <h3>Amla capsule</h3>
+                <p>₹429</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <img src="image/womens health.png" alt="Womens Health Capsule">
+                <h3>Womens Health Capsule</h3>
+                <p>₹564</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <img src="image/mens health.png" alt="Mens Health Capsule">
+                <h3>Mens Health Capsule</h3>
+                <p>₹597</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="image/sugar balance.png" alt="Sugar balance">
+                <h3>Sugar balance</h3>
+                <p>₹499</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <img src="image/piles.png" alt="Piles capsule">
+                <h3>Piles capsules</h3>
+                <p>₹417</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <img src="image/joint care.png" alt="Joint care">
+                <h3>Joint care</h3>
+                <p>₹414</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="image/bath soap.png" alt="Bath soap">
+                <h3>Bath soap</h3>
+                <p>₹59</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card">
+                <img src="image/cloths washing liquid.png" alt="Cloth Washing liquid">
+                <h3>Cloth Washing liquid</h3>
+                <p>₹159</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 11 -->
+            <div class="product-card">
+                <img src="image/dishwash.png" alt="Dish wash">
+                <h3>Dish wash</h3>
+                <p>₹155</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 12 -->
+            <div class="product-card">
+                <img src="image/face cream.png" alt="Face cream">
+                <h3>Face cream</h3>
+                <p>₹141</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 13 -->
+            <div class="product-card">
+                <img src="image/face wash.png" alt="Face wash">
+                <h3>Face wash</h3>
+                <p>₹108</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 14 -->
+            <div class="product-card">
+                <img src="image/foot care.png" alt="Foot care">
+                <h3>Foot care</h3>
+                <p>₹114</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 15 -->
+            <div class="product-card">
+                <img src="image/multipurpose cleaner.png" alt="multipurpose cleaner">
+                <h3>multipurpose cleaner</h3>
+                <p>₹131</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 16 -->
+            <div class="product-card">
+                <img src="image/noodles.png" alt="noodles">
+                <h3>noodles</h3>
+                <p>₹150</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 17 -->
+            <div class="product-card">
+                <img src="image/pain relief cream.png" alt="pain relief cream">
+                <h3>pain relief cream</h3>
+                <p>₹129</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <!-- Product 18 -->
+            <div class="product-card">
+                <img src="image/tooth paste.png" alt="tooth paste">
+                <h3>tooth paste</h3>
+                <p>₹149</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlight" id="about">
+        <section class="why-choose-us-section"></section>
+        <h2>Why Choose Us?</h2>
+        <div class="highlight-container">
+            <div class="highlight-card">
+                <img src="https://png.pngtree.com/png-clipart/20230103/original/pngtree-100-premium-quality-logo-vector-free-download-png-image_8864400.png" alt="Premium Quality">
+                <h3>Premium Quality</h3>
+                <p>We provide top-notch products that ensure the best results for your health and well-being.</p>
+            </div>
+            <div class="highlight-card">
+                <img src="https://th.bing.com/th/id/OIP.NAIKXirvmHgWM0CvsoasfAHaHa?rs=1&pid=ImgDetMain" alt="24/7 Customer Support">
+                <h3>24/7 Customer Support</h3>
+                <p>Our dedicated team is always here to assist you with your queries and needs.</p>
+            </div>
+            <div class="highlight-card">
+                <img src="https://png.pngtree.com/png-clipart/20230415/original/pngtree-best-price-icon-design-png-image_9057741.png" alt="Affordable Pricing">
+                <h3>Affordable Pricing</h3>
+                <p>Get premium products at prices that fit your budget without compromising quality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3>Edutou supermarket</h3>
+                <p>Dedicated to providing the best health and wellness products to enhance your lifestyle.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:edutousupermarket@gmail.com">edutousupermarket@gmail.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Edutou supermarket. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add these styles to support search results
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                /* Add these styles to your existing CSS file */
+
+/* For Featured Product Section */
+#featured-product, 
+.featured-product,
+section:has(h2:contains("Featured Product")) {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.15) 50%, rgba(236, 72, 153, 0.1) 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(147, 51, 234, 0.2);
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+}
+
+#featured-product::before,
+.featured-product::before,
+section:has(h2:contains("Featured Product"))::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, transparent 60%);
+  animation: glowPulse 15s infinite linear;
+  z-index: 0;
+}
+
+/* For Why Choose Us Section */
+#why-choose-us,
+.why-choose-us,
+section:has(h2:contains("Why Choose Us")) {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(59, 130, 246, 0.15) 50%, rgba(16, 185, 129, 0.1) 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+}
+
+#why-choose-us::before,
+.why-choose-us::before,
+section:has(h2:contains("Why Choose Us"))::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 60%);
+  animation: glowPulse 15s infinite linear;
+  z-index: 0;
+}
+
+/* Make sure content stays above the gradient */
+#featured-product > *, 
+.featured-product > *,
+section:has(h2:contains("Featured Product")) > *,
+#why-choose-us > *,
+.why-choose-us > *,
+section:has(h2:contains("Why Choose Us")) > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation for the glowing effect */
+@keyframes glowPulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+                .search-results-heading {
+                    text-align: center;
+                    margin: 20px 0;
+                    color: #ff4444;
+                    font-size: 1.8rem;
+                }
+                
+                .clear-search {
+                    display: block;
+                    margin: 20px auto;
+                    background-color: #ff4444;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+                
+                .clear-search:hover {
+                    background-color: #ff6666;
+                }
+                
+                .no-results-message {
+                    text-align: center;
+                    padding: 30px;
+                    background-color: #f9f9f9;
+                    border-radius: 10px;
+                    margin: 20px auto;
+                    max-width: 600px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                }
+            </style>
+        `);
+
+        // Search functionality
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+            
+            if (searchInput) {
+                // Scroll to the shop section
+                document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+                
+                // Clear previous search results
+                const searchResults = document.getElementById('searchResults');
+                searchResults.innerHTML = '';
+                
+                // Create search results heading
+                const searchHeading = document.createElement('h2');
+                searchHeading.className = 'search-results-heading';
+                searchHeading.textContent = `Search results for: "${searchInput}"`;
+                searchResults.appendChild(searchHeading);
+                
+                // Get all product cards
+                const productCards = document.querySelectorAll('.product-card');
+                const productsContainer = document.getElementById('productsContainer');
+                
+                // Counter for found products
+                let foundProducts = 0;
+                
+                // Filter products based on search term
+                productCards.forEach(card => {
+                    const productTitle = card.querySelector('h3').textContent.toLowerCase();
+                    const productDescription = card.querySelector('p').textContent.toLowerCase();
+                    
+                    if (productTitle.includes(searchInput) || productDescription.includes(searchInput)) {
+                        card.style.display = 'block';
+                        foundProducts++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // If no products found, show a message
+                if (foundProducts === 0) {
+                    const noResultsMessage = document.createElement('p');
+                    noResultsMessage.textContent = 'No products found matching your search.';
+                    noResultsMessage.className = 'no-results-message';
+                    searchResults.appendChild(noResultsMessage);
+                }
+                
+                // Add a "Clear Search" button
+                const clearSearchButton = document.createElement('button');
+                clearSearchButton.textContent = 'Clear Search';
+                clearSearchButton.className = 'btn btn-primary clear-search';
+                
+                clearSearchButton.addEventListener('click', function() {
+                    // Reset the search
+                    document.getElementById('searchInput').value = '';
+                    searchResults.innerHTML = '';
+                    
+                    // Show all products again
+                    productCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                });
+                
+                searchResults.appendChild(clearSearchButton);
+            } else {
+                alert('Please enter a search term.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
